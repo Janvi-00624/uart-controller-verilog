@@ -1,0 +1,30 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Simulate baud_gen",
+      "type": "shell",
+      "command": "iverilog -g2012 -o sim/baud_gen.out rtl/baud_gen.v tb/tb_baud_gen.v ; vvp sim/baud_gen.out",
+      "group": { "kind": "build", "isDefault": true },
+      "presentation": { "panel": "shared", "reveal": "always" }
+    },
+    {
+      "label": "Simulate uart_tx",
+      "type": "shell",
+      "command": "iverilog -g2012 -o sim/uart_tx.out rtl/baud_gen.v rtl/uart_tx.v tb/tb_uart_tx.v ; vvp sim/uart_tx.out",
+      "presentation": { "panel": "shared", "reveal": "always" }
+    },
+    {
+      "label": "Simulate uart_top (full)",
+      "type": "shell",
+      "command": "iverilog -g2012 -o sim/uart_top.out rtl/baud_gen.v rtl/uart_tx.v rtl/uart_rx.v rtl/uart_top.v tb/tb_uart_top.v ; vvp sim/uart_top.out",
+      "presentation": { "panel": "shared", "reveal": "always" }
+    },
+    {
+      "label": "Open GTKWave",
+      "type": "shell",
+      "command": "gtkwave sim/baud_gen.vcd &",
+      "presentation": { "panel": "shared" }
+    }
+  ]
+}
