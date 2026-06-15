@@ -18,16 +18,16 @@ A fully parameterized UART (Universal Asynchronous Receiver-Transmitter) control
          ┌─────────────────────────────────────────┐
          │              uart_top                   │
          │                                         │
-tx_data ─┤→  ┌──────────┐    ┌──────────┐        │
+tx_data ─┤→  ┌──────────┐    ┌──────────┐          │
 tx_start─┤→  │ uart_tx  │───▶│ uart_rx  │→ rx_data│
-         │   │  4-state │ tx │  4-state │→ rx_done│
-         │   │   FSM    │    │   FSM    │        │
-tx_busy ◀┤─  └──────────┘    └──────────┘        │
-         │         ↑               ↑              │
-         │    ┌─────────┐   ┌─────────┐          │
-         │    │baud_gen │   │baud_gen │          │
-         │    │  (TX)   │   │  (RX)   │          │
-         │    └─────────┘   └─────────┘          │
+         │   │  4-state │ tx │  4-state │→ rx_done │
+         │   │   FSM    │    │   FSM    │          │
+tx_busy ◀┤─  └──────────┘    └──────────┘          │
+         │         ↑               ↑               │
+         │    ┌─────────┐   ┌─────────┐            │
+         │    │baud_gen │   │baud_gen │            │
+         │    │  (TX)   │   │  (RX)   │            │
+         │    └─────────┘   └─────────┘            │
          └─────────────────────────────────────────┘
 ```
 
